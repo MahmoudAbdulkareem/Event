@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edulance</title>
+    <link rel="stylesheet" href="{{asset('components/header/header.css')}}">
+</head>
+<nav class="navbar">
+       <div class="navbar-left">
+        <a href="{{path('home')}}" class="logo"><img src="{{asset('components/header/images/logo.png')}}" alt="logo"></a>
+        <div class="search-box">
+            <img src="{{asset('components/header/images/search.png')}}" >
+            <input type="text" placeholder="Search for anything">
+        </div>
+       </div>
+       <div class="navbar-center">
+        <ul>
+            <li><a href="{{path('home')}}" class="active-link"><img src="{{asset('components/header/images/home.png')}}" alt="home"> <span>Home</span></a></li>
+            <li><a href="#"><img src="{{asset('components/header/images/jobs.png')}}" alt="jobs"> <span>Jobs</span></a></li>            
+            <li><a href="{{path('menu_course')}}"><img src="{{asset('components/header/images/network.png')}}" alt="network"> <span>Courses</span></a></li>
+            <li><a href="#"><img src="{{asset('components/header/images/notification.png')}}" alt="notification"> <span>Notifications</span></a></li>
+            <li><a href="#"><img src="{{asset('components/header/images/notification.png')}}" alt="notification"> <span>Team</span></a></li>
+            <li><a href="#"><img src="{{asset('components/header/images/notification.png')}}" alt="notification"> <span>Contact</span></a></li>
+            
+        </ul>
+       </div>
+       <div class="navbar-right">
+        <div class="online">
+        {% if User is defined %}
+            {% if User > 0 %}
+        
+        <img src="{{asset('components/header/images/user-1.png')}}" class="nav-profile-img" onclick="toggleMenu()">
+        {% else %}
+<div class="order-3 flex gap-x-1 justify-end min-w-[100px] flex-nowrap flex-shrink-0 babybear:flex-wrap flex-2">
+              <a class="btn btn-light" href="https://www.linkedin.com/signup?trk=guest_homepage-basic_nav-header-join" data-tracking-control-name="guest_homepage-basic_nav-header-join" data-tracking-will-navigate="">
+                Join now
+              </a>
+      <a class="btn btn-primary" href="https://www.linkedin.com/login?fromSignIn=true&amp;trk=guest_homepage-basic_nav-header-signin" data-tracking-control-name="guest_homepage-basic_nav-header-signin" data-tracking-will-navigate="">
+          Sign in
+      </a>
+
+
+<!---->      </div>
+        {% endif %}
+        {% endif %}
+        </div> 
+       </div>
+       
+
+
+
+    </nav>

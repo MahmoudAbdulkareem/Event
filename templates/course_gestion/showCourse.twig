@@ -1,0 +1,51 @@
+{% if courses is defined %}
+    
+
+{{ dump(courses) }}
+{% for course in courses %}
+{{ course.getId() }}    
+{% endfor %}
+{{ courses[0].getId() }}
+{{ dump(courses[0]) }}
+{% if courses is defined %}
+    {% if courses is iterable %}
+<table class="table">
+    <thead>
+        <tr>
+        {% for key in ["course","Title","owner_Name","owner_Family_Name","Rate","price","buyers"] %}
+                <th>{{key}}</th>
+        {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    {% set number_of_courses = 0 %}
+        {% for Course in courses %}
+            <tr>
+                <td>{{number_of_courses}}</td>
+                 {% set number_of_courses=number_of_courses+1 %}
+                 <td scope="row">{{Course.getTitle()}}</td>
+                <td scope="row">{{Course.getowner().getName()}}</td>
+                <td scope="row">{{Course.getowner().getFamilyName()}}</td>
+                <td scope="row">{{Course.getRate()}}</td>
+                <td scope="row">{{Course.getPrice()}}</td>
+                <td scope="row">
+                {% set users = Course.getUsers() %}
+                    {% if users is defined %}
+                        {% for user in users %}
+                            {{user.getName()}}  
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+        
+    {% endif %}
+{% else %}
+none
+{% endif %}
+{% else %}
+{{ dump(request) }}
+{% endif %}

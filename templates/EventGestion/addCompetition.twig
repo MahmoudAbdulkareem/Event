@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Competition</title>
+    <!-- CSS -->
+    <link href="{{ asset('components/Form/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/Form/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/Form/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/Form/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/Form/assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/Form/assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/Form/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/Form/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
+
+    <style>
+        /* Additional custom styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="logo-container">
+                <img src="{{ asset('home/assets/img/logo.png') }}" alt="Edulance Logo">
+            </div>
+            <div class="form-container">
+                {% block body %}
+                    <section class="section">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Competition Details</h5>
+                                        <!-- Competition Details Form -->
+                                        {{ form_start(competition) }}
+                                        <div class="row mb-3">
+                                            <label for="name" class="col-sm-2 col-form-label required">Name:</label>
+                                            <div class="col-sm-10">
+                                                {{ form_widget(competition.Name, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                                                {{ form_errors(competition.Name) }}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="location" class="col-sm-2 col-form-label required">Location:</label>
+                                            <div class="col-sm-10">
+                                                {{ form_widget(competition.Location, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                                                {{ form_errors(competition.Location) }}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="description" class="col-sm-2 col-form-label required">Description:</label>
+                                            <div class="col-sm-10">
+                                                {{ form_widget(competition.Description, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                                                {{ form_errors(competition.Description) }}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="group" class="col-sm-2 col-form-label required">Group:</label>
+                                            <div class="col-sm-10">
+                                                {{ form_widget(competition.Groupe, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                                                {{ form_errors(competition.Groupe) }}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3 justify-content-center"> <!-- Center the button -->
+                                            <div class="col-sm-10"> <!-- Adjust the button's width -->
+                                                <button type="submit" class="btn btn-primary btn-block">Add competition</button> <!-- Make the button full-width -->
+                                            </div>
+                                        </div>
+                                        <!-- End competition Details Form -->
+                                        {{ form_end(competition) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="{{asset('components/Form/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('components/Form/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{asset('components/Form/assets/js/main.js')}}"></script>
+</body>
+</html>
